@@ -1,4 +1,4 @@
-package bouc_web_service.utils;
+package fr.dta.tests;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;

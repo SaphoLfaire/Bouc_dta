@@ -1,4 +1,4 @@
-package bouc_web_service.controllertests;
+package fr.dta.tests;
 
 import org.junit.Before;
 import org.junit.runner.RunWith;
@@ -13,7 +13,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
-import bouc_web_service.utils.JsonHelper;
 import fr.dta.App;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -21,6 +20,7 @@ import fr.dta.App;
 @ContextConfiguration(classes = App.class)
 @TestPropertySource("classpath:application-test.properties")
 @Transactional
+
 public abstract class IntegrationTests {
 
 	@Autowired
