@@ -1,0 +1,2 @@
+insert into user_(id, title, author, nb_page, date_publication, isbn) values (1, 'La flemme un art de vivre', 'Jesus', '1', '2017-05-02', '14562584521');
+insert into user_(id, title, author, nb_page, date_publication, isbn) values (2, 'La flemme un art de vivre tome 2', 'Jesus', '2', '2017-05-02', '4587456321585');
