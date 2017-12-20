@@ -37,11 +37,11 @@ public class BookIT extends IntegrationTests {
 		u.setNbPages(7485);
 		u.setPublicationDate(new Date());
 
-		this.mockMvc.perform(post("/books").contentType(MediaType.APPLICATION_JSON).characterEncoding("UTF-8")
+		this.mockMvc.perform(post("/books", u).contentType(MediaType.APPLICATION_JSON_VALUE).characterEncoding("UTF-8")
 				.content(jsonHelper.serialize(u))).andExpect(status().isOk());
 		
-		//this.mockMvc.perform(get("/books")).andDo(MockMvcResultHandlers.print())
-		//.andExpect(jsonPath("$", hasSize(3))).andExpect(status().isOk());
+		this.mockMvc.perform(get("/books")).andDo(MockMvcResultHandlers.print())
+		.andExpect(jsonPath("$", hasSize(3))).andExpect(status().isOk());
 
 	}
 
@@ -57,7 +57,7 @@ public class BookIT extends IntegrationTests {
 		u.setPublicationDate(new Date());
 
 		this.mockMvc
-				.perform(post("/books").contentType(MediaType.APPLICATION_JSON).characterEncoding("UTF-8")
+				.perform(post("/books").contentType(MediaType.APPLICATION_JSON_VALUE).characterEncoding("UTF-8")
 						.content(jsonHelper.serialize(u)))
 				.andDo(MockMvcResultHandlers.print())
 				//.andExpect(jsonPath("$[*].field", containsInAnyOrder("id", "isbn", "publication_date", "nb_pages", "title", "author")))
@@ -71,11 +71,9 @@ public class BookIT extends IntegrationTests {
 	@WithMockUser
 	public void testUpdate() throws Exception {
 		Book book = ls.getById(68464861);
-		// Assert.assertEquals("admin@iocean.fr", book.getLogin());
-
-		// book.setLogin("test@iocean.fr");
+		
 		this.mockMvc
-				.perform(put("/books", book).contentType(MediaType.APPLICATION_JSON).characterEncoding("UTF-8")
+				.perform(put("/books", book).contentType(MediaType.APPLICATION_JSON_VALUE).characterEncoding("UTF-8")
 						.content(jsonHelper.serialize(book)));
 				
 				
